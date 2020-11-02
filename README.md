@@ -41,9 +41,31 @@ module.exports = {
 ```
 
 **Entry** is first point of our program. all relation start this file. **Output** is bundle file. This file 'immediately invoked function expression' for runtime code.
+</br></br>
 
+## Loader
 
+**Loader** converts some modules(file) to some custom structive forms. For example, any file can convert js code with correct loader.</br></br>
 
+For making code to ES5 code, use babel. If you want to more information about babel, ref [here](https://github.com/seo2im/CustomBabel). In webpack, use babel with `babel-loader`.
+
+```javascript
+module.exports = {
+	/* ... */
+	module : {
+		rules : [ // module rule setting
+			{
+				test : /\.js/, //all js file
+				exclude : /node_modules/, //npm module excluing
+				use: 'babel-loader'
+			}
+		]
+	},
+	mode : 'production'
+}
+```
+
+## Plugins
 
 
 
