@@ -22,7 +22,7 @@ npx webpack
 Work in code possible. Espacially, When controling webpack carefully, like`next.js` or 'CRA', exec webpack in code.
 </br></br>
 
-## Basic setting
+## Basic setting ([Webpack#1]())
 
 Webpack work with `webpack.config.js`. Set entry and output. input is start point of moudules, output is bundle.
 
@@ -43,7 +43,7 @@ module.exports = {
 **Entry** is first point of our program. all relation start this file. **Output** is bundle file. This file 'immediately invoked function expression' for runtime code.
 </br></br>
 
-## Loader
+## Loader ([Webpack#2]())
 
 **Loader** converts some modules(file) to some custom structive forms. For example, any file can convert js code with correct loader.</br></br>
 
@@ -65,7 +65,26 @@ module.exports = {
 }
 ```
 
-## Plugins
+## Plugins ([Webpack#3]())
 
+**Plugin** affect all session while running webpack, loader only specific modules.
 
+For example, `html-webpack-plugin` automatically make html including bundle.js files.
+
+```javascript
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+	/* ... */
+	plugins : [
+		new CleanWebpackPlugin(), //clean dist directory
+		new HtmlWebpackPlugin({
+			template : './src/index.html'
+		})
+	]
+}
+```
+
+Setting plugins in `webpack.confing.js`, index.html is made automatically.
 
